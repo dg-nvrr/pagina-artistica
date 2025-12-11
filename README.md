@@ -1,27 +1,26 @@
-# Portafolio Artista Visual - Marcela Navarro 🎨
+# Portafolio Artista Visual - Marcela Navarro & Sistema de Gestión
 
-Este proyecto consiste en el desarrollo de un portafolio web responsivo para la artista visual **Marcela Navarro**. El sitio funciona como una vitrina digital para exhibir sus obras de pintura al óleo, orfebrería y artes plásticas, permitiendo además el contacto directo con la artista.
-
-El proyecto ha sido desarrollado como parte de la **Evaluación de Portafolio**, cumpliendo con los requerimientos técnicos de la asignatura.
-
----
-
-## ✅ Cumplimiento de la Pauta de Evaluación
-
-El desarrollo aborda los siguientes puntos solicitados en el encargo:
-
-1.  **Estructura Semántica:** Uso correcto de etiquetas HTML5 para organizar el contenido (`<header>`, `<nav>`, `<section>`, `<footer>`).
-2.  **Diseño Responsivo:** Adaptación a diferentes dispositivos mediante CSS personalizado y el sistema de grillas.
-3.  **Framework CSS:** Utilización de herramientas para la maquetación ágil de la galería y componentes de interfaz.
-4.  **Interactividad:** Programación de eventos en el cliente para la validación del formulario de contacto.
-5.  **Manipulación del DOM:** Implementación de efectos de desplazamiento suave ("Smooth Scroll") en la navegación.
-6.  **Gestión de Código:** Uso de control de versiones para mantener un repositorio ordenado y seguro.
-
----
+Este repositorio contiene el proyecto web para la artista Marcela Navarro y un sistema de backend en Python para la administración de sus obras.
 
 ## 📂 Estructura del Proyecto
 
-```text
-├── index.html      # Estructura principal y maquetación
-├── style.css       # Estilos personalizados
-└── README.md       # Documentación del proyecto
+* **Frontend (Web):** `index.html`, `style.css` (Portafolio visual).
+* **Backend (Lógica):** `gestion.py` (Script de consola para administrar inventario).
+
+## 🐍 Funcionalidades del Script (gestion.py)
+
+Este script cumple con los requerimientos técnicos de la evaluación de Python:
+
+1.  **Variables y Operadores:** Cálculo de IVA (19%) sobre precios netos.
+2.  **Tipos de Datos:** Manejo de strings, integers y floats.
+3.  **Control de Flujo:** Menú interactivo con `while` y toma de decisiones con `if/elif`.
+4.  **Estructuras de Datos:** Uso de listas de diccionarios para simular la base de datos de obras.
+5.  **Funciones:** Código modularizado (`mostrar_menu`, `limpiar_pantalla`).
+
+## 🚀 Cómo ejecutar el sistema
+
+1.  Asegúrate de tener Python instalado.
+2.  Ejecuta el comando:
+    ```bash
+    python gestion.py
+    ```
