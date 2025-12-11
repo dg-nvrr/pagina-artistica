@@ -58,3 +58,7 @@ while ejecutando:
         ejecutando = False
     else:
         print("Opción inválida.")
+
+        print("--- Fin de la ejecución. Sistema desarrollado por Dg-nvrr. ---")
+
+        # --- Codigo revisado y listo para echar a andar ---
