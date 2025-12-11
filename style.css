@@ -1,0 +1,30 @@
+/* --- Reemplaza esto en style.css --- */
+
+/* Renombramos tu botón antiguo a btn-custom para no chocar con Bootstrap */
+.btn-custom {
+    padding: 12px 30px;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    display: inline-block; /* Importante para que respete paddings */
+}
+
+.btn-custom:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* La clase .gallery-grid YA NO ES NECESARIA porque usamos Bootstrap */
+/* Puedes borrarla */
+
+/* Ajustamos las tarjetas para que funcionen bien con Bootstrap */
+.art-card {
+    background: white;
+    /* padding, shadow y transition los maneja Bootstrap o se mantienen igual */
+    transition: transform 0.3s;
+    border: none; /* Quitamos bordes por defecto */
+}
