@@ -2,17 +2,28 @@ import os
 
 # --- Req 6: Funciones y modularización ---
 def limpiar_pantalla():
+    # Detecta el sistema operativo para limpiar consola
     if os.name == 'nt':
         os.system('cls')
     else:
         os.system('clear')
 
 def mostrar_menu():
-    print("\n--- GESTIÓN DE ARTE ---")
+    print("\n--- GESTIÓN DE ARTE (v2.0) ---")
     print("1. Ver catálogo")
-    print("2. Cotizar (con IVA)")
-    print("3. Agregar obra")
-    print("4. Salir")
+    print("2. Cotizar obra (con IVA)")
+    print("3. Agregar nueva obra")
+    print("4. Ver estadísticas de inventario") # ¡NUEVO!
+    print("5. Salir")
+
+# Función nueva para calcular totales
+def mostrar_estadisticas(lista_obras):
+    cantidad = len(lista_obras)
+    valor_total = sum(obra['precio'] for obra in lista_obras)
+    print(f"\n--- ESTADÍSTICAS ---")
+    print(f"Obras en catálogo: {cantidad}")
+    print(f"Valor total del inventario: ${valor_total:,.0f}")
+    input("\nPresione Enter para continuar...")
 
 # --- Req 1: Variables y operadores ---
 iva = 0.19
@@ -24,40 +35,49 @@ obras = [
     {"titulo": "Abstracción III", "precio": 80000, "tipo": "Mixta"}
 ]
 
-# --- Req 4: Bucle While ---
+# --- Req 4: Bucle While Principal ---
 ejecutando = True
 
 while ejecutando:
     mostrar_menu()
     
     # --- Req 2: Tipos de datos (Input) ---
-    opcion = input("\nOpción: ")
+    opcion = input("\nSeleccione una opción: ")
 
     # --- Req 3: Condicionales (If/Elif) ---
     if opcion == "1":
         limpiar_pantalla()
-        for obra in obras:
-            print(f"- {obra['titulo']} ({obra['tipo']}): ${obra['precio']}")
+        print("\n--- CATÁLOGO ---")
+        for i, obra in enumerate(obras, 1):
+            print(f"{i}. {obra['titulo']} ({obra['tipo']}): ${obra['precio']:,.0f}")
             
     elif opcion == "2":
         try:
-            base = float(input("Precio base: "))
+            base = float(input("Ingrese precio base de la obra: "))
             final = base * (1 + iva)
-            print(f"Total con IVA: ${final:,.0f}")
+            print(f"--> Precio final con IVA (19%): ${final:,.0f}")
         except ValueError:
-            print("Error: Ingrese un número.")
+            print("¡Error! Debe ingresar un número válido.")
 
     elif opcion == "3":
-        nombre = input("Nombre: ")
-        tipo = input("Tipo: ")
-        obras.append({"titulo": nombre, "precio": 0, "tipo": tipo})
-        print("Guardado.")
+        print("\n--- NUEVA OBRA ---")
+        nombre = input("Título: ")
+        tipo = input("Técnica/Tipo: ")
+        try:
+            precio = int(input("Precio neto: "))
+            obras.append({"titulo": nombre, "precio": precio, "tipo": tipo})
+            print("¡Obra guardada exitosamente!")
+        except ValueError:
+            print("Error: El precio debe ser un número entero.")
 
-    elif opcion == "4":
-        print("Saliendo...")
+    elif opcion == "4": # Nueva funcionalidad
+        mostrar_estadisticas(obras)
+
+    elif opcion == "5":
+        print("Cerrando sistema...")
         ejecutando = False
     else:
-        print("Opción inválida.")
+        print("Opción no válida, intente nuevamente.")
 
         print("--- Fin de la ejecución. Sistema desarrollado por Dg-nvrr. ---")
 
