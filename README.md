@@ -1,28 +1,19 @@
-# Portafolio Artista Visual - Marcela Navarro & Sistema de Gestión
+# Portafolio Artista Visual - Marcela Navarro
 
-Este repositorio contiene el proyecto integral para la artista Marcela Navarro, combinando un portafolio web visual y un backend administrativo en Python.
+Proyecto de gestión de arte y portafolio web.
 
 ## 📂 Estructura del Proyecto
 
-* **`/frontend`**: Contiene el sitio web (`index.html`, `style.css`) diseñado con Bootstrap 5 para mostrar la galería de obras.
-* **`/backend`**: Contiene la lógica de negocio (`gestion.py`) para la administración de obras y precios.
+* **`/frontend`**: Sitio web (`index.html`, `style.css`) con Bootstrap 5.
+* **`/backend`**: Lógica administrativa en Python (`gestion.py`).
+* **`/database`**: Archivos SQL (`script_galeria.sql`) con el modelo Relacional.
 
-## 🐍 Funcionalidades del Backend (Python)
+## 🗄️ Base de Datos
+Se implementó un modelo relacional normalizado:
+* **Tablas:** `Obras` y `Categorias` (Relación 1:N).
+* **Script:** Incluye creación de tablas (DDL) e inserción de datos (DML).
+* **Consultas:** Ejemplo de `INNER JOIN` para reportes.
 
-El script `gestion.py` ha sido actualizado a la versión 2.0 e incluye:
-
-1.  **Cálculo de IVA:** Automatización de precios finales con impuestos.
-2.  **Gestión de Inventario:** Visualización de catálogo mediante listas y diccionarios.
-3.  **Ingreso de Datos:** Validación de tipos de datos (`try/except`) al agregar nuevas obras.
-4.  **Estadísticas:** Reporte automático del valor total del inventario y cantidad de obras (Uso de funciones y acumuladores).
-5.  **Interfaz de Consola:** Menú interactivo limpio y fácil de usar.
-
-## 🚀 Instalación y Uso
-
-1.  Clonar el repositorio.
-2.  Navegar a la carpeta `backend`.
-3.  Ejecutar:
-    ```bash
-    python gestion.py
-    ```
-
+## 🚀 Ejecución
+1. Navegar a `/backend` y ejecutar `python gestion.py`.
+2. Abrir `/frontend/index.html` para ver la galería.
