@@ -1,19 +1,27 @@
-# Portafolio Artista Visual - Marcela Navarro
+# Portafolio Artista Visual - Marcela Navarro (Django Version)
 
-Proyecto de gestión de arte y portafolio web.
+Plataforma web de gestión de arte y portafolio digital, migrada a una arquitectura MVT (Modelo-Vista-Template) con Django.
+
+## 🚀 Tecnologías
+* **Backend:** Python 3, Django 5.
+* **Frontend:** HTML5, CSS3, Bootstrap 5.
+* **Seguridad:** Gestión de variables de entorno con `python-dotenv`.
+* **Base de Datos:** SQLite (Desarrollo).
 
 ## 📂 Estructura del Proyecto
+* **`/core`**: Configuración principal del proyecto (`settings.py`, `urls.py`).
+* **`/galeria`**: Aplicación principal. Contiene:
+    * `models.py`: Modelos de base de datos (Obras, Categorías).
+    * `views.py`: Lógica de presentación.
+    * `admin.py`: Configuración del panel administrativo.
+* **`/frontend`**: (Deprecado) Archivos estáticos originales antes de la migración.
 
-* **`/frontend`**: Sitio web (`index.html`, `style.css`) con Bootstrap 5.
-* **`/backend`**: Lógica administrativa en Python (`gestion.py`).
-* **`/database`**: Archivos SQL (`script_galeria.sql`) con el modelo Relacional.
+## 🛠️ Instalación y Ejecución
 
-## 🗄️ Base de Datos
-Se implementó un modelo relacional normalizado:
-* **Tablas:** `Obras` y `Categorias` (Relación 1:N).
-* **Script:** Incluye creación de tablas (DDL) e inserción de datos (DML).
-* **Consultas:** Ejemplo de `INNER JOIN` para reportes.
-
-## 🚀 Ejecución
-1. Navegar a `/backend` y ejecutar `python gestion.py`.
-2. Abrir `/frontend/index.html` para ver la galería.
+1. **Clonar y preparar entorno:**
+   ```bash
+   # Activar entorno virtual (Windows)
+   source venv/Scripts/activate
+   
+   # Instalar dependencias
+   pip install django python-dotenv
