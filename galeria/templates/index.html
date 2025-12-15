@@ -1,0 +1,144 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Marcela Navarro | Artista Visual</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <nav class="d-flex justify-content-between align-items-center py-3 px-5 shadow-sm sticky-top">
+        <div class="logo">MN</div>
+        <ul class="list-unstyled m-0 d-flex gap-4">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#galeria">Obras</a></li>
+            <li><a href="#bio">Biografía</a></li>
+            <li><a href="#contacto">Contacto</a></li>
+        </ul>
+    </nav>
+
+    <header id="inicio">
+        <div class="hero-content container">
+            <h1>Marcela Navarro</h1>
+            <p class="subtitle">Pintura al Óleo &bull; Orfebrería &bull; Artes Plásticas</p>
+            <a href="#galeria" class="btn-custom">Ver Colección</a>
+        </div>
+    </header>
+
+    <section id="galeria" class="container my-5 pt-5">
+        <div class="section-title text-center mb-5">
+            <h2>Galería Selecta</h2>
+            <p>Una exploración de texturas y emociones.</p>
+        </div>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="art-card text-center p-3 h-100 shadow-sm">
+                    <div class="placeholder-img pintura mb-3">Pintura al Óleo</div>
+                    <div class="art-info">
+                        <h3>Atardeceres</h3>
+                        <p>Óleo sobre lienzo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="art-card text-center p-3 h-100 shadow-sm">
+                    <div class="placeholder-img orfebreria mb-3">Orfebrería</div>
+                    <div class="art-info">
+                        <h3>Colgante Lunar</h3>
+                        <p>Plata y Piedras Semipreciosas</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="art-card text-center p-3 h-100 shadow-sm">
+                    <div class="placeholder-img mixta mb-3">Técnica Mixta</div>
+                    <div class="art-info">
+                        <h3>Abstracción III</h3>
+                        <p>Acrílico y texturas</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="bio" class="bio-section py-5 bg-light text-center border-top border-bottom">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-9"> <h2 class="mb-4">Raíces y Esencia</h2>
+                    
+                    <p class="lead text-muted mb-4">
+                        "El arte es el lenguaje con el que la naturaleza dialoga con el espíritu humano."
+                    </p>
+                    
+                    <p class="text-secondary" style="line-height: 1.8;">
+                        Nacida bajo los cielos de la <strong>Región del Maule</strong> y arraigada en la apacible localidad de <strong>Romeral</strong>, mi identidad artística florece de la contemplación profunda del entorno. 
+                        Lejos del ruido urbano, mi obra se nutre de los silencios del valle y la texturas de la tierra.
+                    </p>
+
+                    <p class="text-secondary" style="line-height: 1.8;">
+                        Con una trayectoria marcada por la búsqueda de la belleza orgánica, he dedicado mi vida a transformar materiales en emociones. 
+                        Desde la fluidez del óleo que imita los ríos del sur, hasta la rigidez noble de los metales en la orfebrería, cada pieza es un tributo a la 
+                        fuerza y delicadeza de la naturaleza que me rodea.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contacto" class="bg-dark text-white py-5">
+        <div class="container text-center">
+            <h2 class="mb-4">Hablemos de Arte</h2>
+            <p>¿Interesado en una pieza o colaboración?</p>
+            
+            <div class="row justify-content-center mt-4">
+                <div class="col-md-6">
+                    <form id="contactForm">
+                        <div class="mb-3">
+                            <input type="email" class="form-control" id="emailInput" placeholder="Tu correo electrónico" required>
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="3" placeholder="Tu mensaje..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-outline-light px-5">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+
+            <p class="copyright mt-5 text-secondary">© 2024 Marcela Navarro. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        $(document).ready(function(){
+            // Smooth Scroll para los enlaces
+            $('a[href^="#"]').on('click', function(event) {
+                var target = $(this.getAttribute('href'));
+                if( target.length ) {
+                    event.preventDefault();
+                    $('html, body').stop().animate({
+                        scrollTop: target.offset().top - 80
+                    }, 800);
+                }
+            });
+
+            // Validación simple
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                alert("¡Gracias por tu mensaje! Marcela te contactará pronto.");
+                this.reset();
+            });
+        });
+    </script>
+</body>
+</html>

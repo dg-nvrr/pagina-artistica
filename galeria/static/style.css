@@ -1,0 +1,133 @@
+/* --- style.css --- */
+:root {
+    --primary-font: 'Lato', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+    --bg-color: #fcfcfc;
+    --text-color: #333;
+    --accent-color: #8a7b6e;
+}
+
+body {
+    font-family: var(--primary-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* Títulos elegantes */
+h1, h2, h3, .logo {
+    font-family: var(--heading-font);
+}
+
+/* --- Navegación --- */
+nav {
+    background: white;
+    /* La estructura la maneja Bootstrap ahora, aquí solo estetica */
+    border-bottom: 1px solid #eee;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #555;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: var(--accent-color);
+}
+
+/* --- Hero (Portada) --- */
+header#inicio {
+    height: 80vh; /* Altura de la pantalla */
+    background: #f4f4f4; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    color: #1a1a1a;
+}
+
+.subtitle {
+    font-size: 1.1rem;
+    color: #666;
+    margin-bottom: 2rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+}
+
+/* Botón personalizado */
+.btn-custom {
+    padding: 12px 30px;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-custom:hover {
+    background-color: #333;
+    color: white;
+}
+
+/* --- Galería (IMPORTANTE: Esto arregla las cajas grises) --- */
+.art-card {
+    background: white;
+    transition: transform 0.3s;
+    border: none;
+}
+
+.art-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Esta clase hace que aparezcan los cuadros de colores */
+.placeholder-img {
+    height: 250px; /* Altura fija para que se vea */
+    background-color: #eee; /* Color de fondo base */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #999;
+    font-family: var(--heading-font);
+    font-size: 1.2rem;
+}
+
+/* Colores suaves para diferenciar las obras */
+.pintura { background-color: #e8e8e8; }
+.orfebreria { background-color: #f0ebe5; }
+.mixta { background-color: #e5e8f0; }
+
+.art-info h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.art-info p {
+    font-style: italic;
+    color: #777;
+}
+
+/* --- Footer --- */
+footer {
+    background-color: #1a1a1a;
+    color: white;
+}
