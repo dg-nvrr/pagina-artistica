@@ -32,40 +32,50 @@
         </div>
     </header>
 
-    <section id="galeria" class="container my-5 pt-5">
+<section id="galeria" class="container my-5 pt-5">
         <div class="section-title text-center mb-5">
             <h2>Galería Selecta</h2>
-            <p>Una exploración de texturas y emociones.</p>
+            
+            {% if user.is_staff %}
+            <div class="mb-4">
+                <a href="{% url 'crear_obra' %}" class="btn btn-dark">+ Agregar Nueva Obra</a>
+            </div>
+            {% endif %}
         </div>
 
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="art-card text-center p-3 h-100 shadow-sm">
-                    <div class="placeholder-img pintura mb-3">Pintura al Óleo</div>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            {% for obra in obras %}
+            <div class="col">
+                <div class="art-card h-100">
+                    <div class="img-container">
+                        {% if obra.imagen %}
+                            <img src="{{ obra.imagen.url }}" alt="{{ obra.titulo }}">
+                        {% else %}
+                            <div class="d-flex align-items-center justify-content-center h-100 text-muted">
+                                Sin imagen
+                            </div>
+                        {% endif %}
+                    </div>
+
                     <div class="art-info">
-                        <h3>Atardeceres</h3>
-                        <p>Óleo sobre lienzo</p>
+                        <h3>{{ obra.titulo }}</h3>
+                        <p class="text-muted fst-italic">{{ obra.categoria.nombre_tecnica }}</p>
+                        <p class="fw-bold">${{ obra.precio }}</p>
+                        
+                        {% if user.is_staff %}
+                        <div class="mt-3 pt-3 border-top">
+                            <a href="{% url 'editar_obra' obra.id %}" class="btn btn-sm btn-outline-primary me-2">Editar</a>
+                            <a href="{% url 'eliminar_obra' obra.id %}" class="btn btn-sm btn-outline-danger" onclick="return confirm('¿Seguro de borrar?');">Eliminar</a>
+                        </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="art-card text-center p-3 h-100 shadow-sm">
-                    <div class="placeholder-img orfebreria mb-3">Orfebrería</div>
-                    <div class="art-info">
-                        <h3>Colgante Lunar</h3>
-                        <p>Plata y Piedras Semipreciosas</p>
-                    </div>
-                </div>
+            {% empty %}
+            <div class="col-12 text-center">
+                <p>No hay obras disponibles.</p>
             </div>
-            <div class="col-md-4">
-                <div class="art-card text-center p-3 h-100 shadow-sm">
-                    <div class="placeholder-img mixta mb-3">Técnica Mixta</div>
-                    <div class="art-info">
-                        <h3>Abstracción III</h3>
-                        <p>Acrílico y texturas</p>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
