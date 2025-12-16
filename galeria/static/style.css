@@ -1,41 +1,93 @@
-/* --- Galería 100% Responsiva --- */
+/* --- style.css --- */
+:root {
+    --primary-font: 'Lato', sans-serif;
+    --heading-font: 'Playfair Display', serif;
+    --bg-color: #fcfcfc;
+    --text-color: #333;
+    --accent-color: #8a7b6e;
+}
 
-/* La tarjeta ocupa el 100% del espacio que le da Bootstrap */
+body {
+    font-family: var(--primary-font);
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+/* Títulos */
+h1, h2, h3, .logo {
+    font-family: var(--heading-font);
+}
+
+/* --- Navegación --- */
+nav {
+    background: white;
+    border-bottom: 1px solid #eee;
+}
+.logo { font-size: 1.5rem; font-weight: bold; }
+nav a { text-decoration: none; color: #555; transition: color 0.3s; }
+nav a:hover { color: var(--accent-color); }
+
+/* --- Hero --- */
+header#inicio {
+    padding: 100px 0;
+    background: #f4f4f4;
+    text-align: center;
+}
+.hero-content h1 { font-size: 3rem; margin-bottom: 0.5rem; }
+
+/* --- GALERÍA FINA Y RESPONSIVA (CORREGIDO) --- */
+
+/* 1. Limitamos el ancho de la tarjeta para que no sea "gigante" */
 .art-card {
     background: #fff;
     border: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    /* Esto es clave: la tarjeta nunca será más ancha de 350px */
+    max-width: 350px; 
+    margin: 0 auto; /* Centra la tarjeta en su columna */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
     transition: transform 0.3s ease;
-    height: 100%; /* Para que todas las tarjetas de la fila tengan el mismo alto */
     display: flex;
     flex-direction: column;
 }
 
-/* Contenedor de la imagen: Define la altura fija */
-.img-container {
-    width: 100%;
-    height: 300px; /* Altura estándar para todas las fotos */
-    overflow: hidden;
-    background-color: #f8f9fa;
-    position: relative;
+.art-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
 }
 
-/* La imagen se fuerza a llenar el contenedor */
+/* 2. Contenedor de imagen con proporción 4:5 (Típica de retratos/arte) */
+.img-container {
+    position: relative;
+    width: 100%;
+    /* Aspect Ratio moderno: Mantiene la forma rectangular vertical elegante */
+    aspect-ratio: 4 / 5; 
+    overflow: hidden;
+    background-color: #f0f0f0;
+}
+
+/* 3. La imagen llena el contenedor sin deformarse */
 .img-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* CORTA la imagen si sobra, no la deforma */
-    object-position: center;
-    transition: transform 0.5s ease;
+    object-fit: cover; /* Recorta los bordes sobrantes */
+    object-position: top center; /* Centra priorizando la parte superior */
+    transition: transform 0.6s ease;
 }
 
-/* Efecto visual al pasar el mouse */
 .art-card:hover .img-container img {
-    transform: scale(1.1);
+    transform: scale(1.05); /* Zoom sutil */
 }
 
+/* Texto */
 .art-info {
-    padding: 1.5rem;
+    padding: 1.2rem;
     text-align: center;
-    flex-grow: 1; /* Empuja el contenido hacia abajo */
+    background: white;
 }
+
+.art-info h3 { font-size: 1.2rem; margin: 0.5rem 0; }
+.art-info .tecnica { font-size: 0.85rem; color: #777; font-style: italic; }
+.art-info .precio { font-weight: bold; color: #333; margin-top: 0.5rem; }
+
+/* Footer */
+footer { background-color: #1a1a1a; color: white; }
