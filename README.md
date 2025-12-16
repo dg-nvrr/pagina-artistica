@@ -58,5 +58,11 @@ Plataforma web profesional desarrollada en Django para la gestión y exhibición
     python manage.py runserver
     ```
 
+## 🔄 Historial de Mejoras
+Para la versión final, se realizaron las siguientes optimizaciones:
+1. **Limpieza de Arquitectura:** Eliminación de scripts antiguos (`backend/gestion.py`).
+2. **Documentación:** Se agregaron explicaciones técnicas en `views.py`.
+3. **Configuración:** Ajuste de `ALLOWED_HOSTS` en `settings.py` para entorno local.
+
 ## 👤 Autor
 Desarrollado para Marcela Navarro por Dg-nvrr

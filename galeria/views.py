@@ -1,17 +1,24 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from django.contrib.admin.views.decorators import staff_member_required # EL CANDADO
+from django.contrib.admin.views.decorators import staff_member_required
 from .models import Obra
 from .forms import ObraForm
 
-# --- Vista Pública (Cualquiera puede verla) ---
 def inicio(request):
+    """
+    Vista pública principal.
+    Recupera todas las obras de la base de datos y las renderiza
+    en la plantilla pública.
+    """
     obras = Obra.objects.all()
     return render(request, 'index.html', {'obras': obras})
 
-# --- Vistas Privadas (Solo Staff/Admin puede entrar) ---
-
-@staff_member_required(login_url='admin:login') # Si no es admin, lo manda al login
+@staff_member_required(login_url='admin:login')
 def crear_obra(request):
+    """
+    Vista de gestión (Create).
+    Permite a los administradores subir una nueva obra.
+    Valida el formulario y guarda la imagen adjunta.
+    """
     if request.method == 'POST':
         form = ObraForm(request.POST, request.FILES)
         if form.is_valid():
@@ -23,6 +30,10 @@ def crear_obra(request):
 
 @staff_member_required(login_url='admin:login')
 def editar_obra(request, id):
+    """
+    Vista protegida para edición (Update).
+    Recupera una obra por su ID y carga el formulario con sus datos actuales.
+    """
     obra = get_object_or_404(Obra, id=id)
     if request.method == 'POST':
         form = ObraForm(request.POST, request.FILES, instance=obra)
@@ -35,6 +46,10 @@ def editar_obra(request, id):
 
 @staff_member_required(login_url='admin:login')
 def eliminar_obra(request, id):
+    """
+    Vista protegida de eliminación (Delete).
+    Borra permanentemente el registro de la obra seleccionada.
+    """
     obra = get_object_or_404(Obra, id=id)
     obra.delete()
     return redirect('inicio')
